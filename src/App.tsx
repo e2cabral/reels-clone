@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import { VideoCard } from './components/VideoCard/VideoCard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="app__top">
+        {/* Image with instagram logo */}
+        <img
+          className="app__logo"
+          src="https://via.placeholder.com/500"
+          alt="Instagram logo"/>
+        {/* Reels text */}
+        <h1>Reels</h1>
+      </div>
+      <div className="app__videos">
+        {/* Container to hold videos */}
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+        <VideoCard />
+      </div>
     </div>
   );
 }
