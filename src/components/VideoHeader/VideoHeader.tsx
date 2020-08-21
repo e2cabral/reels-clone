@@ -8,9 +8,9 @@ import './VideoHeader.css';
 export const VideoHeader = () => {
   return (
     <div className="videoHeader">
-      <ArrowBackIos />
+      <ArrowBackIos fontSize="small" />
       <h3>Reels</h3>
-      <CameraAltOutlined />
+      <CameraAltOutlined fontSize="small" />
     </div>
   );
 }
