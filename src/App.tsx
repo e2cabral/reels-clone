@@ -1,27 +1,34 @@
-import React from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
 import { VideoCard } from './components/VideoCard/VideoCard';
+import  db from './firebase';
+
+import './App.css';
 
 function App() {
+
+  const [reels, setReels] = useState<Array<any>>([]);
+  useEffect(() => {
+    db.collection('reels').onSnapshot((snapshot) => {
+      setReels(snapshot.docs.map(doc => doc.data()));
+    });
+  }, [])
+
   return (
     <div className="app">
       <div className="app__top">
-        {/* Image with instagram logo */}
-        <img
-          className="app__logo"
-          src="https://via.placeholder.com/500"
-          alt="Instagram logo"/>
-        {/* Reels text */}
-        <h1>Reels</h1>
       </div>
       <div className="app__videos">
-        {/* Container to hold videos */}
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
+        { reels.map((reel) => (
+          <VideoCard
+            channel={reel.channel}
+            avatarSrc={reel.avatarSrc}
+            song={reel.song}
+            url={reel.url}
+            likes={reel.likes}
+            share={reel.share}
+          />
+        )) }
       </div>
     </div>
   );
