@@ -1,3 +1,7 @@
+# Reels Clone App
+
+This project was developed just in study purpose, it's a Reels Instagram Clone developed using ReactJS and Firebase.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
